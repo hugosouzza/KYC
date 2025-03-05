@@ -1,6 +1,7 @@
 import streamlit as st
 from docx import Document
 from io import BytesIO
+import datetime
 
 def rellenar_kyc(datos_cliente, plantilla_path):
     doc = Document(plantilla_path)
