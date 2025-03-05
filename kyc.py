@@ -1,7 +1,7 @@
 import streamlit as st
 from docx import Document
 from io import BytesIO
-
+import datetime
 def rellenar_kyc(datos_cliente, plantilla_path):
     doc = Document(plantilla_path)
     for par in doc.paragraphs:
@@ -24,8 +24,7 @@ if tipo_cliente == "Persona Física":
     datos_cliente["nombre_apellidos"] = st.text_input("Nombre y Apellidos")
     datos_cliente["tipo_documento"] = st.selectbox("Tipo de Documento", ["DNI", "Pasaporte", "NIE"])
     datos_cliente["numero_documento"] = st.text_input("Número de Documento")
-    import datetime
-datos_cliente["fecha_nacimiento"] = st.date_input("Fecha de Nacimiento", min_value=datetime.date(1950, 1, 1), max_value=datetime.date(2050, 12, 31))
+    datos_cliente["fecha_nacimiento"] = st.date_input("Fecha de Nacimiento", min_value=datetime.date(1950, 1, 1), max_value=datetime.date(2050, 12, 31))
     datos_cliente["nacionalidad"] = st.text_input("Nacionalidad")
     datos_cliente["pais_residencia"] = st.text_input("País de Residencia")
     datos_cliente["direccion"] = st.text_input("Dirección")
